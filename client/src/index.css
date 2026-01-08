@@ -4,6 +4,7 @@
   /* Soft deep teal */
   --color-primary-dark: #245856;
   /* Darker teal */
+  --color-primary-light: rgba(47, 111, 109, 0.1);
   --color-secondary: #8FB3A9;
   /* Muted mint */
   --color-accent: #D4A373;
@@ -43,14 +44,20 @@
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
+  --radius-full: 9999px;
 
-  /* Shadows */
+  /* Enhanced Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 20px rgba(47, 111, 109, 0.25);
 
-  /* Transitions */
-  --transition: all 0.2s ease;
+  /* Smooth Transitions */
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 * {
@@ -475,4 +482,326 @@ h4 {
   background-color: #CFFAFE;
   border-color: var(--color-info);
   color: #164E63;
+}
+
+/* ========================================
+   ENHANCED ANIMATIONS & POLISH
+   ======================================== */
+
+/* Page Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide In From Left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale In Animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Shimmer Loading Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Spinner Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Enhanced Card Hover Effects */
+.card {
+  transition: var(--transition-slow);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Interactive Button Effects */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.btn:hover::after {
+  transform: translateX(100%);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(47, 111, 109, 0.4);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Icon Button Hover Effects */
+.btn-icon {
+  transition: var(--transition-bounce);
+}
+
+.btn-icon:hover {
+  transform: scale(1.1);
+  background-color: var(--color-bg);
+}
+
+.btn-icon.danger:hover {
+  color: var(--color-danger);
+  background-color: #FFEBEE;
+}
+
+/* Enhanced Form Focus States */
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 3px var(--color-primary-light), var(--shadow-md);
+}
+
+/* Alert Animations */
+.alert {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+/* Link Hover Effects */
+a {
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+/* Enhanced Modal Animation */
+.modal-overlay {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Page Loading States */
+.page-loading {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Skeleton Loading Effect */
+.skeleton {
+  background: linear-gradient(90deg,
+      var(--color-bg) 25%,
+      var(--color-surface) 50%,
+      var(--color-bg) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* Enhanced Spinner */
+.spinner {
+  animation: spin 0.8s linear infinite;
+  border: 3px solid var(--color-primary-light);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+/* Number Counter Animation */
+.stat-value,
+.total-value {
+  transition: var(--transition-slow);
+}
+
+/* Progress Bar Animation */
+.goal-progress-fill,
+.budget-progress-fill {
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Staggered Animation for Lists */
+.transaction-row,
+.account-card,
+.goal-card,
+.budget-card {
+  animation: fadeIn 0.3s ease-out backwards;
+}
+
+.transaction-row:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.transaction-row:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.transaction-row:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.transaction-row:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.transaction-row:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+/* Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+
+/* Selection Color */
+::selection {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+/* Focus Visible for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Empty State Animation */
+.empty-state {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.empty-state svg {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Badge Glow Effect */
+.stat-mini.income,
+.stat-mini.expense {
+  transition: var(--transition);
+}
+
+.stat-mini.income:hover {
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+}
+
+.stat-mini.expense:hover {
+  box-shadow: 0 0 15px rgba(229, 115, 115, 0.3);
+}
+
+/* Responsive Animations - Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
