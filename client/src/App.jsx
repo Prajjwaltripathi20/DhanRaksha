@@ -1,7 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import AuthPage from './pages/AuthPage';
 import Dashboard from './pages/Dashboard';
 import Transactions from './pages/Transactions';
 import Accounts from './pages/Accounts';
@@ -45,9 +44,9 @@ const PublicRoute = ({ children }) => {
 function App() {
     return (
         <Routes>
-            {/* Public routes */}
-            <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
-            <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
+            {/* Public routes - Auth page with sliding panel */}
+            <Route path="/login" element={<PublicRoute><AuthPage /></PublicRoute>} />
+            <Route path="/register" element={<PublicRoute><AuthPage /></PublicRoute>} />
 
             {/* Protected routes */}
             <Route path="/" element={<ProtectedRoute><Layout /></ProtectedRoute>}>
