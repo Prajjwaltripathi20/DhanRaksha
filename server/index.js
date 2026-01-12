@@ -18,7 +18,20 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.get('/', (req, res) => {
-    res.json({ message: 'Welcome to DhanRaksha API' });
+    const dbStatus = require('mongoose').connection.readyState;
+    const dbStatusMap = {
+        0: 'Disconnected',
+        1: 'Connected',
+        2: 'Connecting',
+        3: 'Disconnecting'
+    };
+
+    res.json({
+        message: 'DhanRaksha API is running...',
+        status: 'OK',
+        database: dbStatusMap[dbStatus] || 'Unknown',
+        timestamp: new Date().toISOString()
+    });
 });
 
 // API Routes
