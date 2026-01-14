@@ -243,6 +243,7 @@ h4 {
 .grid {
   display: grid;
   gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
 }
 
 .grid-2 {

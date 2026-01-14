@@ -20,8 +20,11 @@ const Sidebar = ({ isOpen, onClose }) => {
 
             <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
                 <div className="sidebar-header">
-                    <h1 className="sidebar-logo">DhanRaksha</h1>
-                    <p className="sidebar-tagline">Financial Dashboard</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                        <img src="/logo.png" alt="Logo" style={{ width: '32px', height: '32px' }} />
+                        <h1 className="sidebar-logo" style={{ marginBottom: 0 }}>DhanRaksha</h1>
+                    </div>
+                    <p className="sidebar-tagline" style={{ paddingLeft: '3.25rem' }}>Financial Dashboard</p>
                     <button className="sidebar-close" onClick={onClose}>
                         <X size={24} />
                     </button>

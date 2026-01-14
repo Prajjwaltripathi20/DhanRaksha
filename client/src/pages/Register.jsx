@@ -55,7 +55,10 @@ const Register = () => {
         <div className="auth-container">
             <div className="auth-card">
                 <div className="auth-header">
-                    <h1 className="auth-logo">DhanRaksha</h1>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                        <img src="/logo.png" alt="Logo" style={{ width: '48px', height: '48px' }} />
+                        <h1 className="auth-logo" style={{ marginBottom: 0 }}>DhanRaksha</h1>
+                    </div>
                     <h2 className="auth-title">Create Account</h2>
                     <p className="auth-subtitle">Start managing your finances today</p>
                 </div>
