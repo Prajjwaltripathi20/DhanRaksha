@@ -1,8 +1,12 @@
 {
     "rewrites": [
         {
+            "source": "/api/(.*)",
+            "destination": "https://dhan-raksha-backend.vercel.app/api/$1"
+        },
+        {
             "source": "/(.*)",
-            "destination": "/"
+            "destination": "/index.html"
         }
     ]
 }
