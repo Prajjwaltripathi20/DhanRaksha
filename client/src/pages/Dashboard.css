@@ -273,12 +273,48 @@
 }
 
 @media (max-width: 768px) {
-    .stat-card {
+    .dashboard-header {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+
+    .dashboard-actions {
+        width: 100%;
+        justify-content: stretch;
+    }
+
+    .dashboard-actions .btn {
+        flex: 1;
+    }
+
+    .stat-card {
+        flex-direction: row;
+        /* Keep icon side-by-side if possible, or adjust */
+        align-items: center;
+        text-align: left;
+        padding: var(--spacing-md);
+    }
+
+    /* If screen is VERY small, maybe stack */
+    @media (max-width: 480px) {
+        .stat-card {
+            flex-direction: column;
+            text-align: center;
+        }
     }
 
     .stat-value {
         font-size: 1.25rem;
+    }
+
+    .chart-wrapper-small {
+        min-height: 250px;
+    }
+
+    .mini-legend {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: var(--spacing-lg);
     }
 }

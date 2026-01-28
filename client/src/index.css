@@ -60,6 +60,16 @@
   --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
+@media (max-width: 768px) {
+  :root {
+    --spacing-md: 0.75rem;
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+    --spacing-2xl: 2rem;
+  }
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -103,6 +113,24 @@ h3 {
 
 h4 {
   font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+  }
 }
 
 /* Buttons */
@@ -262,6 +290,10 @@ h4 {
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -270,10 +302,29 @@ h4 {
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
+    gap: var(--spacing-md);
   }
 }
 
 /* Utilities */
+.hidden-mobile {
+  display: block;
+}
+
+.visible-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+
+  .visible-mobile {
+    display: block !important;
+  }
+}
+
 .text-center {
   text-align: center;
 }

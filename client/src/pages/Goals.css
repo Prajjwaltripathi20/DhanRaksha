@@ -203,9 +203,37 @@
     font-size: 0.875rem;
 }
 
+/* Page Header - assuming Goals.jsx uses it, likely needs it since standard in others */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-xl);
+}
+
+.page-header h1 {
+    margin-bottom: var(--spacing-xs);
+}
+
 @media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .page-header .btn {
+        width: 100%;
+    }
+
     .goals-summary {
         flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .summary-stat {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
     }
 
     .goals-grid {

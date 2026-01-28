@@ -262,7 +262,12 @@
 @media (max-width: 768px) {
     .page-header {
         flex-direction: column;
+        align-items: stretch;
         gap: var(--spacing-md);
+    }
+
+    .page-header .btn {
+        width: 100%;
     }
 
     .stats-row {
@@ -270,22 +275,50 @@
     }
 
     .filters-row {
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-md);
+    }
+
+    .search-box {
+        max-width: none;
+        width: 100%;
     }
 
     .filters-row .form-select {
         flex: 1;
-        min-width: 100px;
+        width: 100%;
+    }
+
+    /* Transaction List Item Mobile Card Style */
+    .transactions-list {
+        gap: var(--spacing-md);
     }
 
     .transaction-row {
         flex-direction: column;
         align-items: flex-start;
         gap: var(--spacing-md);
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        padding: var(--spacing-md);
+        margin-bottom: 0;
+        /* Handled by gap on parent */
+    }
+
+    .transaction-left {
+        width: 100%;
     }
 
     .transaction-right {
         width: 100%;
         justify-content: space-between;
+        padding-top: var(--spacing-sm);
+        border-top: 1px solid var(--color-bg);
+    }
+
+    .transaction-amount {
+        font-size: 1.125rem;
     }
 }
