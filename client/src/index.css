@@ -161,6 +161,7 @@ h4 {
 
 .btn-primary:hover:not(:disabled) {
   background-color: var(--color-primary-dark);
+  color: white;
 }
 
 .btn-success {
@@ -170,6 +171,7 @@ h4 {
 
 .btn-success:hover:not(:disabled) {
   background-color: #059669;
+  color: white;
 }
 
 .btn-danger {
@@ -179,6 +181,7 @@ h4 {
 
 .btn-danger:hover:not(:disabled) {
   background-color: #DC2626;
+  color: white;
 }
 
 .btn-secondary {
@@ -712,7 +715,7 @@ a {
   transition: var(--transition-fast);
 }
 
-a:hover {
+a:not(.btn):hover {
   color: var(--color-primary);
 }
 
