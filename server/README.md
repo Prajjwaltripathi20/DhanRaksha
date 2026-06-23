@@ -21,7 +21,11 @@ A comprehensive RESTful API for managing personal finances, built with Node.js, 
 
 ## Installation
 
-1. Clone the repository
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Prajjwaltripathi20/DhanRaksha.git
+   cd DhanRaksha/server
+   ```
 2. Install dependencies:
    ```bash
    npm install
